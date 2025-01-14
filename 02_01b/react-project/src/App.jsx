@@ -4,10 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 
-function Header(){
+function Header(props){
   return(
     <header>
-      <h1>Yasho's Plants</h1>
+      <h1>{props.name}'s Plants</h1>
+      <p>Copyright {props.year}</p>
     </header>
   );
 }
@@ -17,7 +18,7 @@ function App() {
 
   return  (
     <div>
-    <Header />
+    <Header name="Pavi" year={new Date().getFullYear()}/>
     <main>
       <h2>We have different kinds of plants in our store.</h2>
     </main>
