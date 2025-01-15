@@ -4,26 +4,39 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 
-function Header(){
+function Header({ name, year}){
   return(
     <header>
-      <h1>Yasho's Plants</h1>
+      <h1>{ name }'s Kitchen</h1>
+      <p>Copyright { year }</p>
     </header>
   );
 }
 
+const items = ["Macaroni and Cheese","Salmon with Potatoes","Tofu with Vegitables","Minestrone Soup"];
+
+const dishObjects = items.map((dish, i)=>({
+  id: i,
+  title: dish
+}));
+
+console.log(dishObjects);
+
+function Main({ dishes }){
+  return <ul>
+      {dishes.map((dish) => (
+          <li key={dish.id} style={{listStyleType:"none"}}>{ dish.title }</li>
+        ))}
+    </ul>;
+}
 
 function App() {
-
   return  (
     <div>
-    <Header />
-    <main>
-      <h2>We have different kinds of plants in our store.</h2>
-    </main>
+    <Header name="Mathupaala" year={new Date().getFullYear()}/>
+    <Main dishes={dishObjects}/>
     </div>
   )
-
 }
 
 export default App
