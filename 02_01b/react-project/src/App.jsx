@@ -1,8 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
 import './App.css'
-
+import chef from "./images/chef.jpg"
 
 function Header({ name, year}){
   return(
@@ -23,11 +21,24 @@ const dishObjects = items.map((dish, i)=>({
 console.log(dishObjects);
 
 function Main({ dishes }){
-  return <ul>
-      {dishes.map((dish) => (
-          <li key={dish.id} style={{listStyleType:"none"}}>{ dish.title }</li>
-        ))}
-    </ul>;
+  return (
+  <>
+  <div>
+    <h2>Welcome to this beautiful resturant.</h2>
+  </div>
+  <main>
+    <img 
+    src={chef} height={200} 
+    alt=" This is Maathulaala, our smiling chef owner. "/>
+    
+    <ul>
+        {dishes.map((dish) => (
+            <li key={dish.id} style={{listStyleType:"none"}}>{ dish.title }</li>
+          ))}
+    </ul>
+  </main>
+  </>
+  );
 }
 
 function App() {
